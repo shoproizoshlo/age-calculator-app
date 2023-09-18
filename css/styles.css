@@ -123,31 +123,31 @@ html {
   font-family: "Poppins", sans-serif;
 }
 .container {
-  padding: 55px;
+  margin: 15% auto;
+  padding: 42px;
   border-radius: 20px 20px 200px 20px;
   background-color: var(--neutral-white);
-  width: 800px;
-  height: 630px;
+  /* width: 800px; */
+  /* height: 630px; */
   /* min-height: 600px; */
   max-width: 58%;
-  /* min-height: 68%; */
-  max-height: 100%;
-  position: fixed; /* Фиксированная позиция */
-  top: 50%; /* Положение сверху на 50% */
-  left: 50%; /* Положение слева на 50% */
+  min-height: 68%;
+  /* max-height: 100%; */
+  /* position: fixed; 
+  top: 50%;
+  left: 50%;
   transform: translate(
     -50%,
     -50%
-  ); /* Смещение на -50% от размеров контейнера */
+  );  */
 }
 .form {
   display: flex;
 }
 .input-control {
   flex: 1;
-  margin-right: 3%;
-  max-width: 350px;
-  max-width: 185px;
+  margin-right: 2%;
+  width: 150px;
 }
 label {
   text-transform: uppercase;
@@ -159,8 +159,8 @@ input {
   padding: 20px;
   width: 90%;
   height: 70px;
-  font-size: 32px;
-  border: 3px solid var(--neutral-off-white);
+  font-size: 1.7em;
+  border: 2px solid var(--neutral-off-white);
   border-radius: 10px;
   color: var(--neutral-off-black);
 }
@@ -194,24 +194,27 @@ hr {
   margin: 35px 0;
   border: 1px solid var(--neutral-smokey-grey);
   width: -webkit-fill-available;
-  /* height: 2px; */
+  height: 1px;
 }
 button {
-  height: 90px;
-  width: 90px;
+  height: 75px;
+  width: 75px;
   background-color: var(--primary-purple);
   border-radius: 100px;
   position: relative;
-  top: 93px;
-  right: -49px;
+  top: 98px;
+  right: -38px;
   z-index: 1;
 }
 .outputs {
-  margin: 10px 0;
+  margin: 15px 0;
   color: var(--neutral-off-black);
-  font-size: 7em;
+  font-size: 5.4em;
   font-weight: 800;
   font-style: italic;
+}
+.outputs span {
+  color: var(--primary-purple);
 }
 /* footer */
 .attribution {
