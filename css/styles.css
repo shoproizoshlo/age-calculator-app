@@ -140,7 +140,11 @@ html {
     -50%
   ); /* Смещение на -50% от размеров контейнера */
 }
+.form {
+  display: flex;
+}
 .input-control {
+  flex: 1;
   margin-right: 3%;
   max-width: 350px;
   max-width: 185px;
@@ -187,8 +191,27 @@ input:hover {
 }
 
 hr {
-  width: 600px;
-  height: 10px;
+  margin: 35px 0;
+  border: 1px solid var(--neutral-smokey-grey);
+  width: -webkit-fill-available;
+  /* height: 2px; */
+}
+button {
+  height: 90px;
+  width: 90px;
+  background-color: var(--primary-purple);
+  border-radius: 100px;
+  position: relative;
+  top: 93px;
+  right: -49px;
+  z-index: 1;
+}
+.outputs {
+  margin: 10px 0;
+  color: var(--neutral-off-black);
+  font-size: 7em;
+  font-weight: 800;
+  font-style: italic;
 }
 /* footer */
 .attribution {
