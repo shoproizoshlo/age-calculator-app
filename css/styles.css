@@ -337,7 +337,12 @@ hr {
   /* button img {
     width: 28px;
   } */
-
+  .arrow {
+    padding: 32px;
+    background-size: 30px;
+    top: 103px;
+    right: 192px;
+  }
   .outputs {
     margin: 69px 0;
     /* color: var(--neutral-off-black); */
