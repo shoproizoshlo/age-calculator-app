@@ -39,6 +39,7 @@
             <div class="input-control d-flex flex-column justify-content-right">
               <label for="day">Day</label>
               <input
+                required
                 type="number"
                 id="day"
                 name="day"
@@ -46,10 +47,12 @@
                 max="30"
                 placeholder="DD"
               />
+              <div class="error" style="display: none"></div>
             </div>
             <div class="input-control d-flex flex-column justify-content-right">
               <label for="month">Month</label>
               <input
+                required
                 type="number"
                 id="month"
                 name="month"
@@ -57,17 +60,22 @@
                 max="12"
                 placeholder="MM"
               />
+              <div class="error" style="display: none"></div>
             </div>
             <div class="input-control d-flex flex-column justify-content-right">
               <label for="year">Year</label>
               <input
+                required
                 type="number"
                 id="year"
                 name="year"
                 min="1940"
                 max="2023"
+                minlength="4"
+                maxlength="4"
                 placeholder="YYYY"
               />
+              <div class="error" style="display: none"></div>
             </div>
           </div>
           <button class="arrow" type="submit" id="submit"></button>

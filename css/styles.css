@@ -110,7 +110,25 @@ h6 {
   font-weight: inherit;
 }
 /*--------------------*/
-
+/* error classes */
+.error {
+  display: block;
+  margin: 5px 3px 10px 0;
+  text-align: end;
+  font-style: italic;
+  color: #ff3860;
+  font-size: 9px;
+  height: 13px;
+}
+.error-icon {
+  margin: -7%;
+}
+/*--------------------*/
+/* useful */
+.hidden {
+  visibility: hidden;
+}
+/*--------------------*/
 body,
 html {
   /* height: auto;
