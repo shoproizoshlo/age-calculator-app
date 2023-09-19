@@ -1,24 +1,24 @@
-// const form = document.getElementById("form");
+const form = document.getElementById("form");
 
-// function calculateAge() {
-//   const day = document.getElementById("day").value;
-//   const month = document.getElementById("month").value;
-//   const year = document.getElementById("year").value;
+function calculateAge() {
+  const day = document.getElementById("day").value;
+  const month = document.getElementById("month").value;
+  const year = document.getElementById("year").value;
 
-//   const currentDate = new Date();
-//   const birthDate = new Date(year, month - 1, day);
+  const currentDate = new Date();
+  const birthDate = new Date(year, month - 1, day);
 
-//   const ageInMilliseconds = currentDate - birthDate;
+  const ageInMilliseconds = currentDate - birthDate;
 
-//   const ageDate = new Date(ageInMilliseconds);
-//   const years = Math.abs(ageDate.getUTCFullYear() - 1970);
-//   const months = ageDate.getUTCMonth();
-//   const days = ageDate.getUTCDate() - 1;
+  const ageDate = new Date(ageInMilliseconds);
+  const years = Math.abs(ageDate.getUTCFullYear() - 1970);
+  const months = ageDate.getUTCMonth();
+  const days = ageDate.getUTCDate() - 1;
 
-//   document.getElementById("years").innerText = `${years}`;
-//   document.getElementById("months").innerText = `${months}`;
-//   document.getElementById("days").innerText = `${days}`;
-// }
+  document.getElementById("years").innerText = `${years}`;
+  document.getElementById("months").innerText = `${months}`;
+  document.getElementById("days").innerText = `${days}`;
+}
 
 // creating function that get form selector
 const validateForm = (formSelector) => {
@@ -29,14 +29,14 @@ const validateForm = (formSelector) => {
     // check if value pass day and month
     {
       attribute: "max",
-      isValid: (input) => input.value > parseInt(input.max),
-      errorMessage: (input) => `Must be a valid day`,
+      isValid: (input) => input.value <= parseInt(input.max),
+      errorMessage: (input) => `Must be a valid ${input.name}`,
     },
 
     // check if value pass year
     {
       attribute: "maxlength",
-      isValid: (input) => input.value && input.minLength >= parseInt(input.max),
+      isValid: (input) => input.value && input.minLength <= parseInt(input.max),
       errorMessage: (input) => `Must be in the past`,
     },
 
@@ -90,6 +90,7 @@ const validateForm = (formSelector) => {
     if (!formGroupError) {
       input.classList.remove("border-danger-subtle");
       errorContainer.textContent = "";
+      calculateAge();
     }
   };
 

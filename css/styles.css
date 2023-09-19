@@ -114,7 +114,7 @@ h6 {
 .error {
   display: block;
   margin: 5px 3px 10px 0;
-  text-align: end;
+  text-align: start;
   font-style: italic;
   color: #ff3860;
   font-size: 9px;
