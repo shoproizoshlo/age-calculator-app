@@ -171,11 +171,9 @@ input {
   border: 2px solid var(--neutral-off-white);
   border-radius: 10px;
   color: var(--neutral-off-black);
+  transition: border-color 0.3s ease-in-out;
 }
-input:active {
-  border-color: var(--primary-purple);
-  cursor: pointer;
-}
+input:active,
 input:hover {
   border-color: var(--primary-purple);
   cursor: pointer;
@@ -204,16 +202,6 @@ hr {
   width: -webkit-fill-available;
   height: 1px;
 }
-/* button {
-  height: 75px;
-  width: 75px;
-  background-color: var(--primary-purple);
-  border-radius: 100px;
-  position: relative;
-  top: 80px;
-  right: -38px;
-  z-index: 1;
-} */
 .arrow {
   background: url(/assets/images/icon-arrow.svg) var(--primary-purple);
   background-repeat: no-repeat;
@@ -226,6 +214,12 @@ hr {
   top: 74px;
   right: -38px;
   z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+.arrow:hover,
+.arrow:active {
+  cursor: pointer;
+  background-color: var(--neutral-off-black);
 }
 .outputs {
   margin: 15px 0;
