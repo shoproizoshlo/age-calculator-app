@@ -15,14 +15,7 @@ function calculateAge() {
   const months = ageDate.getUTCMonth();
   const days = ageDate.getUTCDate() - 1;
 
-  console.log(years);
-
   document.getElementById("years").innerText = `${years}`;
   document.getElementById("months").innerText = `${months}`;
   document.getElementById("days").innerText = `${days}`;
 }
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  calculateAge();
-});
