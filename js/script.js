@@ -28,23 +28,62 @@ const validateForm = (formSelector) => {
   const validationOptions = [
     // check if value pass minlength
     {
-      attribute: "max",
+      attribute: "id",
       isValid: (input) => {
-        const maxValue = input.max;
-        return input.value <= maxValue;
+        input.id !== "day";
+        const today = new Date();
+        // calculate raw differences
+        return today.getDate() > input.value;
       },
-      errorMessage: (input, label) =>
-        `Year needs to be at least ${input.minLength} characters`,
+      errorMessage: (input) => `Must be a valid ${input.name}`,
+    },
+    // check if value pass minlength
+    {
+      attribute: "id",
+      isValid: (input) => {
+        input.id !== "year";
+        const today = new Date();
+        // calculate raw differences
+        return today.getFullYear() > input.value;
+      },
+      errorMessage: (input) => `Must be in the past`,
+    },
+    // check if value pass minlength
+    {
+      attribute: "id",
+      isValid: (input) => {
+        input.id !== "month";
+        const today = new Date();
+        // calculate raw differences
+        return today.getMonth() < input.value;
+      },
+      errorMessage: (input) => `Must be a valid ${input.name}`,
     },
 
-    // check if year value pass minlength
+    // check if value pass minlength
+    // {
+    //   attribute: "id",
+    //   isValid: (input) => {
+    //     console.log("piska");
+    //     return input.max >= input.value;
+    //   },
+    //   errorMessage: (input) => `Must be a valid ${input.name}`,
+    // },
+
+    // check if value pass required
     {
-      attribute: "minlength",
-      isValid: (input) =>
-        input.value && input.value.length >= parseInt(input.minLength),
-      errorMessage: (input, label) =>
-        `Year needs to be at least ${input.minLength} characters`,
+      attribute: "required",
+      isValid: (input) => input.value.trim() !== "",
+      errorMessage: (input) => `This field is required`,
     },
+    // check if year value pass minlength
+    // {
+    //   attribute: "minlength",
+    //   isValid: (input) =>
+    //     input.value && input.value.length >= parseInt(input.minLength),
+    //   errorMessage: (input, label) =>
+    //     `Year needs to be at least ${input.minLength} characters`,
+    // },
     // check if value pass email
     // {
     //   attribute: "pattern",
@@ -54,13 +93,6 @@ const validateForm = (formSelector) => {
     //   },
     //   errorMessage: (input, label) => `Looks like this is not an email`,
     // },
-
-    // check if value pass required
-    {
-      attribute: "required",
-      isValid: (input) => input.value.trim() !== "",
-      errorMessage: (input) => `This field is required`,
-    },
   ];
 
   const validateSingleFormGroup = (formGroup) => {
