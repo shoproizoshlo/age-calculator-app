@@ -27,16 +27,28 @@ const validateForm = (formSelector) => {
   // items in array have object and 3 properties
   const validationOptions = [
     // check if value pass minlength
+    // {
+    //   attribute: "id",
+    //   isValid: (input) => {
+    //     input.id !== "day";
+    //     const today = new Date();
+    //     // calculate raw differences
+    //     console.log(today.getDate());
+    //     return today.getDate() > input.value;
+    //   },
+    //   errorMessage: (input) => `Must be a valid ${input.name}`,
+    // },
+
+    // check if value pass minlength
     {
       attribute: "id",
       isValid: (input) => {
-        input.id !== "day";
-        const today = new Date();
-        // calculate raw differences
-        return today.getDate() > input.value;
+        console.log("piska");
+        return input.max >= input.value;
       },
       errorMessage: (input) => `Must be a valid ${input.name}`,
-    },
+      },
+    
     // check if value pass minlength
     {
       attribute: "id",
@@ -48,27 +60,6 @@ const validateForm = (formSelector) => {
       },
       errorMessage: (input) => `Must be in the past`,
     },
-    // check if value pass minlength
-    {
-      attribute: "id",
-      isValid: (input) => {
-        input.id !== "month";
-        const today = new Date();
-        // calculate raw differences
-        return today.getMonth() < input.value;
-      },
-      errorMessage: (input) => `Must be a valid ${input.name}`,
-    },
-
-    // check if value pass minlength
-    // {
-    //   attribute: "id",
-    //   isValid: (input) => {
-    //     console.log("piska");
-    //     return input.max >= input.value;
-    //   },
-    //   errorMessage: (input) => `Must be a valid ${input.name}`,
-    // },
 
     // check if value pass required
     {
