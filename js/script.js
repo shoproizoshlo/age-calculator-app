@@ -41,14 +41,13 @@ const validateForm = (formSelector) => {
 
     // check if value pass minlength
     {
-      attribute: "id",
+      attribute: "max",
       isValid: (input) => {
-        console.log("piska");
         return input.max >= input.value;
       },
       errorMessage: (input) => `Must be a valid ${input.name}`,
-      },
-    
+    },
+
     // check if value pass minlength
     {
       attribute: "id",
