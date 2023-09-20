@@ -120,8 +120,8 @@ h6 {
   font-size: 9px;
   height: 13px;
 }
-.error-icon {
-  margin: -7%;
+.error-label {
+  color: #ff3860;
 }
 /*--------------------*/
 /* useful */

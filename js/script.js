@@ -26,28 +26,25 @@ const validateForm = (formSelector) => {
 
   // items in array have object and 3 properties
   const validationOptions = [
-    // check if value pass day and month
+    // check if value pass minlength
     {
       attribute: "max",
-      isValid: (input) => input.value <= parseInt(input.max),
-      errorMessage: (input) => `Must be a valid ${input.name}`,
+      isValid: (input) => {
+        const maxValue = input.max;
+        return input.value <= maxValue;
+      },
+      errorMessage: (input, label) =>
+        `Year needs to be at least ${input.minLength} characters`,
     },
 
-    // check if value pass year
+    // check if year value pass minlength
     {
-      attribute: "maxlength",
-      isValid: (input) => input.value && input.minLength <= parseInt(input.max),
-      errorMessage: (input) => `Must be in the past`,
+      attribute: "minlength",
+      isValid: (input) =>
+        input.value && input.value.length >= parseInt(input.minLength),
+      errorMessage: (input, label) =>
+        `Year needs to be at least ${input.minLength} characters`,
     },
-
-    // check if value pass minlength
-    // {
-    //   attribute: "minlength",
-    //   isValid: (input) =>
-    //     input.value && input.value.length >= parseInt(input.minLength),
-    //   errorMessage: (input, label) =>
-    //     `${label.textContent} needs to be at least ${input.minLength} characters`,
-    // },
     // check if value pass email
     // {
     //   attribute: "pattern",
@@ -68,6 +65,7 @@ const validateForm = (formSelector) => {
 
   const validateSingleFormGroup = (formGroup) => {
     // select input, label, error img and error class
+    const label = formGroup.querySelector("label");
     const input = formGroup.querySelector("input");
     const errorContainer = formGroup.querySelector(".error");
 
@@ -82,6 +80,7 @@ const validateForm = (formSelector) => {
         input.classList.add("border-danger-subtle");
         input.style.margin = "0";
 
+        label.classList.add("error-label");
         //   add error to the input
         formGroupError = true;
       }
@@ -89,6 +88,7 @@ const validateForm = (formSelector) => {
     //   remove error border and icon from input if here is no error
     if (!formGroupError) {
       input.classList.remove("border-danger-subtle");
+      label.classList.remove("error-label");
       errorContainer.textContent = "";
       calculateAge();
     }
