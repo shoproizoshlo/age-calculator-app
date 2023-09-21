@@ -40,6 +40,8 @@
               <label for="day">Day</label>
               <input
                 required
+                pattern="[0-9]+"
+                step="1"
                 type="number"
                 id="day"
                 name="day"
@@ -53,6 +55,8 @@
               <label for="month">Month</label>
               <input
                 required
+                pattern="[0-9]+"
+                step="1"
                 type="number"
                 id="month"
                 name="month"
@@ -66,10 +70,12 @@
               <label for="year">Year</label>
               <input
                 required
+                pattern="[0-9]+"
+                step="1"
                 type="number"
                 id="year"
                 name="year"
-                min="1940"
+                min="1000"
                 max="2023"
                 minlength="4"
                 maxlength="4"

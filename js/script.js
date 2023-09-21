@@ -37,12 +37,20 @@ const validateForm = (formSelector) => {
       },
       errorMessage: (input) => `Must be in the past`,
     },
+
     // check if value pass minlength
     {
       attribute: "max",
       isValid: (input) => {
-        return input.max >= input.value;
+        return input.max >= input.value && input.min <= input.value;
       },
+      errorMessage: (input) => `Must be a valid ${input.name}`,
+    },
+
+    // Проверка на отрицательные числа и символ "e"
+    {
+      attribute: "pattern",
+      isValid: (input) => /^[+]?\d+([.]\d+)?$/.test(input.value),
       errorMessage: (input) => `Must be a valid ${input.name}`,
     },
 
@@ -66,7 +74,6 @@ const validateForm = (formSelector) => {
       input.classList.add("border-danger-subtle");
 
       //   change position for button
-
       if (window.innerWidth <= 500) {
         // Добавляем стили для мобильных устройств
         document.querySelector("button").style.top = "117px";
@@ -78,6 +85,7 @@ const validateForm = (formSelector) => {
       //   add error to the input
       formGroupError = true;
     }
+
     //   set no error to the input
     let formGroupError = false;
     // validation rules that loop through then check the input egainst each of rules and trigger right error message
