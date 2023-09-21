@@ -27,19 +27,6 @@ const validateForm = (formSelector) => {
   // items in array have object and 3 properties
   const validationOptions = [
     // check if value pass minlength
-    // {
-    //   attribute: "id",
-    //   isValid: (input) => {
-    //     input.id !== "day";
-    //     const today = new Date();
-    //     // calculate raw differences
-    //     console.log(today.getDate());
-    //     return today.getDate() > input.value;
-    //   },
-    //   errorMessage: (input) => `Must be a valid ${input.name}`,
-    // },
-
-    // check if value pass minlength
     {
       attribute: "max",
       isValid: (input) => {
@@ -112,7 +99,6 @@ const validateForm = (formSelector) => {
       input.classList.remove("border-danger-subtle");
       label.classList.remove("error-label");
       errorContainer.textContent = "";
-      calculateAge();
     }
   };
 
@@ -134,10 +120,22 @@ const validateForm = (formSelector) => {
       formToValidate.querySelectorAll(".input-control")
     );
 
+    // variable for check error for all forms together
+    let allFormGroupsValid = true;
+
     //   loop through array
     formGroups.forEach((formGroup) => {
       validateSingleFormGroup(formGroup);
+
+      if (formGroup.querySelector(".error").textContent) {
+        allFormGroupsValid = false;
+      }
     });
+
+    // if no error in forms, call calculateAge()
+    if (allFormGroupsValid) {
+      calculateAge();
+    }
   };
 };
 
