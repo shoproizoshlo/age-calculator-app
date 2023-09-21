@@ -99,8 +99,7 @@ const validateForm = (formSelector) => {
         input.classList.add("border-danger-subtle");
 
         //   change position for button
-        const button = formGroup.querySelector(".arrow");
-        button.style.top = "87px";
+        document.querySelector("button").style.top = "87px";
 
         label.classList.add("error-label");
         //   add error to the input
@@ -123,7 +122,7 @@ const validateForm = (formSelector) => {
         errorContainer.textContent = `Must be a valid date`;
         errorContainer.style.display = "block";
         input.classList.add("border-danger-subtle");
-        // input.style.margin = "0";
+        document.querySelector("button").style.top = "87px";
         label.classList.add("error-label");
         formGroupError = true;
       }
