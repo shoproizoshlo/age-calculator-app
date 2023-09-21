@@ -98,10 +98,11 @@ const validateForm = (formSelector) => {
 
     //   remove error border and icon from input if here is no error
     if (!formGroupError) {
-      input.classList.remove("border-danger-subtle");
+      //   input.classList.remove("border-danger-subtle");
       label.classList.remove("error-label");
       errorContainer.textContent = "";
     }
+
     // Check for valid day based on the month
     if (input.id === "day" && input.value) {
       const day = parseInt(input.value);
@@ -162,6 +163,11 @@ const validateForm = (formSelector) => {
 
     // if no error in forms, call calculateAge()
     if (allFormGroupsValid) {
+      const input = document.querySelectorAll("input");
+      input.forEach((input) => {
+        input.classList.remove("border-danger-subtle");
+      });
+
       calculateAge();
     }
   };
