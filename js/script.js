@@ -48,11 +48,11 @@ const validateForm = (formSelector) => {
     },
 
     // Проверка на отрицательные числа и символ "e"
-    {
-      attribute: "pattern",
-      isValid: (input) => /^[+]?\d+([.]\d+)?$/.test(input.value),
-      errorMessage: (input) => `Must be a valid ${input.name}`,
-    },
+    // {
+    //   attribute: "pattern",
+    //   isValid: (input) => /^[+]?\d+([.]\d+)?$/.test(input.value),
+    //   errorMessage: (input) => `Must be a valid ${input.name}`,
+    // },
 
     // check if value pass required
     {
@@ -95,6 +95,7 @@ const validateForm = (formSelector) => {
         errorStyling();
       }
     }
+
     //   remove error border and icon from input if here is no error
     if (!formGroupError) {
       input.classList.remove("border-danger-subtle");
