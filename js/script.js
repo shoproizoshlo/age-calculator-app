@@ -26,17 +26,6 @@ const validateForm = (formSelector) => {
 
   // items in array have object and 3 properties
   const validationOptions = [
-    // check if value pass minlength
-    // {
-    //   attribute: "id",
-    //   isValid: (input) => {
-    //     input.id === "day" && input.value;
-    //     const day = parseInt(input.value);
-    //     const month = parseInt(document.getElementById("month").value);
-    //     return day < 1 || day > getDaysInMonth(month);
-    //   },
-    //   errorMessage: (input) => `Must be a valid ${input.name}`,
-    // },
     // check if value pass year
     {
       attribute: "id",
@@ -63,23 +52,6 @@ const validateForm = (formSelector) => {
       isValid: (input) => input.value.trim() !== "",
       errorMessage: (input) => `This field is required`,
     },
-    // check if year value pass minlength
-    // {
-    //   attribute: "minlength",
-    //   isValid: (input) =>
-    //     input.value && input.value.length >= parseInt(input.minLength),
-    //   errorMessage: (input, label) =>
-    //     `Year needs to be at least ${input.minLength} characters`,
-    // },
-    // check if value pass email
-    // {
-    //   attribute: "pattern",
-    //   isValid: (input) => {
-    //     const patternRegex = new RegExp(input.pattern);
-    //     return patternRegex.test(input.value);
-    //   },
-    //   errorMessage: (input, label) => `Looks like this is not an email`,
-    // },
   ];
 
   const validateSingleFormGroup = (formGroup) => {
@@ -88,22 +60,31 @@ const validateForm = (formSelector) => {
     const input = formGroup.querySelector("input");
     const errorContainer = formGroup.querySelector(".error");
 
+    function errorStyling() {
+      errorContainer.style.display = "block";
+      //   add red border around input
+      input.classList.add("border-danger-subtle");
+
+      //   change position for button
+
+      if (window.innerWidth <= 500) {
+        // Добавляем стили для мобильных устройств
+        document.querySelector("button").style.top = "117px";
+      } else {
+        document.querySelector("button").style.top = "87px";
+      }
+
+      label.classList.add("error-label");
+      //   add error to the input
+      formGroupError = true;
+    }
     //   set no error to the input
     let formGroupError = false;
     // validation rules that loop through then check the input egainst each of rules and trigger right error message
     for (const option of validationOptions) {
       if (input.hasAttribute(option.attribute) && !option.isValid(input)) {
         errorContainer.textContent = option.errorMessage(input);
-        errorContainer.style.display = "block";
-        //   add red border around input
-        input.classList.add("border-danger-subtle");
-
-        //   change position for button
-        document.querySelector("button").style.top = "87px";
-
-        label.classList.add("error-label");
-        //   add error to the input
-        formGroupError = true;
+        errorStyling();
       }
     }
     //   remove error border and icon from input if here is no error
@@ -120,11 +101,7 @@ const validateForm = (formSelector) => {
       // Check if day is within valid range for the selected month
       if (day < 1 || day > getDaysInMonth(month)) {
         errorContainer.textContent = `Must be a valid date`;
-        errorContainer.style.display = "block";
-        input.classList.add("border-danger-subtle");
-        document.querySelector("button").style.top = "87px";
-        label.classList.add("error-label");
-        formGroupError = true;
+        errorStyling();
       }
     }
   };
