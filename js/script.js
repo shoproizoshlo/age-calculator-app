@@ -100,6 +100,36 @@ const validateForm = (formSelector) => {
       label.classList.remove("error-label");
       errorContainer.textContent = "";
     }
+    // Check for valid day based on the month
+    if (input.id === "day" && input.value) {
+      const day = parseInt(input.value);
+      const month = parseInt(document.getElementById("month").value);
+
+      // Check if day is within valid range for the selected month
+      if (day < 1 || day > getDaysInMonth(month)) {
+        errorContainer.textContent = `Invalid day for the selected month`;
+        errorContainer.style.display = "block";
+        input.classList.add("border-danger-subtle");
+        input.style.margin = "0";
+        label.classList.add("error-label");
+        formGroupError = true;
+      }
+    }
+  };
+
+  // Function to get the number of days in a month, considering leap years
+  const getDaysInMonth = (month) => {
+    const leapYear = (year) =>
+      (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // Adjust February's days for leap years
+    if (month === 2) {
+      const year = parseInt(document.getElementById("year").value);
+      return leapYear(year) ? 29 : 28;
+    }
+
+    return daysInMonth[month - 1];
   };
 
   // disabling HTML standart validation
