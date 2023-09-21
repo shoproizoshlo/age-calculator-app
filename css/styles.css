@@ -113,7 +113,7 @@ h6 {
 /* error classes */
 .error {
   display: block;
-  margin: 5px 3px 10px 0;
+  margin: 0 0 1px 0;
   text-align: start;
   font-style: italic;
   color: #ff3860;

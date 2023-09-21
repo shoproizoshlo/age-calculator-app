@@ -27,15 +27,17 @@ const validateForm = (formSelector) => {
   // items in array have object and 3 properties
   const validationOptions = [
     // check if value pass minlength
-    {
-      attribute: "max",
-      isValid: (input) => {
-        return input.max >= input.value;
-      },
-      errorMessage: (input) => `Must be a valid ${input.name}`,
-    },
-
-    // check if value pass minlength
+    // {
+    //   attribute: "id",
+    //   isValid: (input) => {
+    //     input.id === "day" && input.value;
+    //     const day = parseInt(input.value);
+    //     const month = parseInt(document.getElementById("month").value);
+    //     return day < 1 || day > getDaysInMonth(month);
+    //   },
+    //   errorMessage: (input) => `Must be a valid ${input.name}`,
+    // },
+    // check if value pass year
     {
       attribute: "id",
       isValid: (input) => {
@@ -45,6 +47,14 @@ const validateForm = (formSelector) => {
         return today.getFullYear() > input.value;
       },
       errorMessage: (input) => `Must be in the past`,
+    },
+    // check if value pass minlength
+    {
+      attribute: "max",
+      isValid: (input) => {
+        return input.max >= input.value;
+      },
+      errorMessage: (input) => `Must be a valid ${input.name}`,
     },
 
     // check if value pass required
@@ -87,7 +97,10 @@ const validateForm = (formSelector) => {
         errorContainer.style.display = "block";
         //   add red border around input
         input.classList.add("border-danger-subtle");
-        input.style.margin = "0";
+
+        //   change position for button
+        const button = formGroup.querySelector(".arrow");
+        button.style.top = "87px";
 
         label.classList.add("error-label");
         //   add error to the input
@@ -107,10 +120,10 @@ const validateForm = (formSelector) => {
 
       // Check if day is within valid range for the selected month
       if (day < 1 || day > getDaysInMonth(month)) {
-        errorContainer.textContent = `Invalid day for the selected month`;
+        errorContainer.textContent = `Must be a valid date`;
         errorContainer.style.display = "block";
         input.classList.add("border-danger-subtle");
-        input.style.margin = "0";
+        // input.style.margin = "0";
         label.classList.add("error-label");
         formGroupError = true;
       }
