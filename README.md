@@ -1,6 +1,6 @@
 # Frontend Mentor - Age calculator app solution
 
-This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). 
 
 ## Table of contents
 
@@ -36,7 +36,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: https://github.com/shoproizoshlo/age-calculator-app-main
 - Live Site URL: https://sue-age-calculator-app.netlify.app/
 
 ## My process
@@ -49,6 +48,4 @@ Users should be able to:
 
 ## Author
 
-- Website - [Sue Brechko](https://github.com/shoproizoshlo/)
 - Frontend Mentor - [@shoproizoshlo](https://www.frontendmentor.io/profile/shoproizoshlo)
-- Twitter - [@suereact](https://www.twitter.com/suereact)
