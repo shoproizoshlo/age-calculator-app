@@ -47,13 +47,6 @@ const validateForm = (formSelector) => {
       errorMessage: (input) => `Must be a valid ${input.name}`,
     },
 
-    // Проверка на отрицательные числа и символ "e"
-    // {
-    //   attribute: "pattern",
-    //   isValid: (input) => /^[+]?\d+([.]\d+)?$/.test(input.value),
-    //   errorMessage: (input) => `Must be a valid ${input.name}`,
-    // },
-
     // check if value pass required
     {
       attribute: "required",
@@ -75,7 +68,6 @@ const validateForm = (formSelector) => {
 
       //   change position for button
       if (window.innerWidth <= 500) {
-        // Добавляем стили для мобильных устройств
         document.querySelector("button").style.top = "117px";
       } else {
         document.querySelector("button").style.top = "87px";
